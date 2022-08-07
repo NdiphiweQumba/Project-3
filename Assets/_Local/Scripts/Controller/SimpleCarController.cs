@@ -47,13 +47,6 @@ public class SimpleCarController : MonoBehaviour {
     void Awake () => m_RandomPerlin = Random.value * 100;
     void Start () => RigidBody = GetComponent<Rigidbody> ();
     
-
-    private void Update () {
-        countNumber = StopArrivalNumber;
-
-        // Next WayPoint  // 
-
-    }
     public void Drive (float turn, float accel, float brake) {
 
         foreach (var info in VehicleInfo) {
@@ -99,9 +92,6 @@ public class SimpleCarController : MonoBehaviour {
             VehicleInfo[0].WheelColliderLeft.transform.position) / 2);
         RelativeVector = transform.InverseTransformPoint (CurrentWayPoint.transform.position);
 
-        // if (CurrentWayPoint.GetComponent<WayPoint> ().NextWayPoint != null) CurrentWayPoint = DistanceToWayPoint < 7 ? NextWayPoint : CurrentWayPoint;
-        // else ChooseRandomWayPoint ();
-
         if (DistanceToWayPoint < 7) {
             if (CurrentWayPoint.GetComponent<WayPoint> ().NextWayPoint != null) {
                 NextWayPoint = CurrentWayPoint.GetComponent<WayPoint> ().NextWayPoint.transform;
@@ -117,8 +107,6 @@ public class SimpleCarController : MonoBehaviour {
         yield return new WaitForSeconds (sec);
         Wait = (int) sec;
         ShouldStop = false;
-        //
-        //TrafficSystem.LeaveStop ();
     }
 
 }

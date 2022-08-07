@@ -69,7 +69,8 @@ public class WayPointManager : EditorWindow
 	#endregion
 
 	#region Private 
-	private void MethodTest () {
+	private void OtherWayPoints () 
+    {
 
 	}
 	#endregion
